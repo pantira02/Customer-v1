@@ -1,155 +1,91 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>จองคิวแทนคุณ</title>
+  <meta charset="UTF-8">
+  <title>จองคิวแทนคุณ - ผู้จ้างงาน</title>
   <style>
-    body {
-      font-family: sans-serif;
-      background: #f2f8ff;
-      margin: 0;
-      padding: 20px;
-      color: #333;
-    }
-    h1, h2 {
-      color: #0056b3;
-    }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    label {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background: #007bff;
-      color: #fff;
-      border: none;
-      padding: 12px 20px;
-      margin-top: 20px;
-      border-radius: 10px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #0056b3;
-    }
-    .info-box {
-      background: #e6f0ff;
-      padding: 10px;
-      border-left: 5px solid #007bff;
-      margin-top: 15px;
-    }
-    .section {
-      margin-top: 20px;
-    }
+    body { font-family: sans-serif; background: #f0f4ff; color: #222; padding: 20px; }
+    h1 { color: #003399; }
+    .form-group { margin-bottom: 15px; }
+    label { display: block; font-weight: bold; }
+    input, select, textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; }
+    button { background: #003399; color: #fff; padding: 12px 20px; border: none; border-radius: 10px; font-size: 16px; }
+    .note { font-size: 14px; color: #555; margin-top: 10px; }
+    .highlight { background: #e6f0ff; padding: 10px; border-radius: 8px; margin-bottom: 15px; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>จองคิวแทนคุณ</h1>
-    <p><strong>สโลแกน:</strong> "ให้การรอคิวเป็นเรื่องง่ายด้วยระบบจองคิวแทนคุณ"</p>
+  <h1>🕐 จองคิวแทนคุณ</h1>
+  <p class="highlight">“ให้การรอคิวเป็นเรื่องง่ายด้วยระบบจองคิวแทนคุณ”</p>
 
-    <div class="info-box">
-      ✅ มั่นใจทุกการจ้าง<br/>
-      ✅ จ่ายผ่านระบบกลาง หักค่าธรรมเนียมอัตโนมัติ 25%<br/>
-      ✅ สะสมแต้มได้ – ทุกการจ้าง 10 แต้ม / ครบ 1000 แต้ม ลด 100 บาท<br/>
-      ✅ จองครบ 10 ครั้ง รับคูปองลด 50 บาท
-    </div>
-
-    <form id="bookingForm">
+  <form id="bookingForm">
+    <div class="form-group">
       <label>ชื่อของคุณ</label>
-      <input type="text" name="customerName" required />
-
+      <input type="text" name="customerName" required>
+    </div>
+    <div class="form-group">
       <label>เบอร์ติดต่อ</label>
-      <input type="tel" name="phone" required />
-
+      <input type="tel" name="phone" required>
+    </div>
+    <div class="form-group">
+      <label>วันและเวลาที่ต้องการ</label>
+      <input type="datetime-local" name="datetime" required>
+    </div>
+    <div class="form-group">
       <label>เลือกบริการ</label>
       <select name="service">
-        <option value="รับหิ้วสินค้า">🛍 รับหิ้วสินค้า</option>
-        <option value="จองโต๊ะร้านเหล้า">🍻 จองโต๊ะร้านเหล้า</option>
-        <option value="จองที่แฟนคลับ">🎤 จองที่แฟนคลับ</option>
-        <option value="ต่อแถว/กดคิว">⏳ ต่อแถว / กดคิว</option>
-        <option value="เพื่อนเที่ยว/รับฟัง">👫 เป็นเพื่อนเที่ยว / รับฟัง</option>
-        <option value="อื่นๆ">❓ บริการอื่นๆ</option>
+        <option>รับหิ้วสินค้า</option>
+        <option>จองโต๊ะ / เฝ้าโต๊ะร้านเหล้า</option>
+        <option>จองที่แฟนคลับ</option>
+        <option>ต่อแถวกดคิว</option>
+        <option>เป็นเพื่อนเที่ยว / รับฟัง</option>
+        <option>บริการอื่นๆ</option>
       </select>
-
-      <label>ระบุรายละเอียดงาน</label>
-      <textarea name="details" rows="3"></textarea>
-
-      <label>วัน-เวลาที่ต้องการ</label>
-      <input type="datetime-local" name="datetime" required />
-
-      <label>เรทราคาที่จ้าง (บาท)</label>
-      <input type="number" name="price" required />
-
+    </div>
+    <div class="form-group">
       <label>ความเร่งด่วนของงาน</label>
       <select name="urgency">
-        <option value="ด่วนใน 1 ชั่วโมง">⏰ ด่วนใน 1 ชั่วโมง</option>
-        <option value="ไม่ด่วน">📅 ไม่ด่วน</option>
+        <option>⚡ งานด่วนใน 1 ชั่วโมง</option>
+        <option>🕓 งานไม่ด่วน</option>
       </select>
-
-      <div class="section">
-        <h2>ตัวเลือกเสริม</h2>
-        <button type="button" onclick="viewProfile()">ดูโปรไฟล์ผู้รับจ้าง</button>
-        <button type="button" onclick="chatNow()">แชทก่อนตัดสินใจ</button>
-        <button type="button" onclick="rateWorker()">ให้คะแนน/รีวิว</button>
-        <button type="button" onclick="checkPoints()">ดูแต้มสะสม</button>
-      </div>
-
-      <div class="section">
-        <h2>ติดตามสถานะงาน</h2>
-        <p>🔄 สถานะ: <span id="status">รอรับงาน</span></p>
-        <button type="button" onclick="simulateStatus()">อัปเดตสถานะ</button>
-      </div>
-
-      <button type="submit">📤 ส่งคำจอง</button>
-    </form>
-  </div>
+    </div>
+    <div class="form-group">
+      <label>เรทราคาที่คุณยินดีจ่าย (บาท)</label>
+      <input type="number" name="price" min="0" required>
+    </div>
+    <div class="note">
+      ✅ <strong>ระบบสะสมแต้ม:</strong> ทุกการจอง 1 ครั้ง = 10 แต้ม<br>
+      🎁 ครบ 1000 แต้ม ลดทันที 100 บาท | ครบ 10 งาน รับคูปองลด 50 บาท<br>
+      💳 ชำระเมื่อมีผู้รับงาน | หากไม่มีผู้รับงาน ระบบคืนเงิน 100%<br>
+      🔒 ระบบหักค่าธรรมเนียม 25% อัตโนมัติเพื่อความปลอดภัย
+    </div>
+    
+    <br>
+    <button type="submit">📩 ส่งคำจอง</button>
+  </form>
 
   <script>
-    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      alert("📦 ส่งคำจองเรียบร้อย!\nระบบจะแจ้งเตือนเมื่อมีผู้รับงาน ✨");
+
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+
+      fetch("https://script.google.com/macros/s/YOUR_GOOGLE_SCRIPT_ID/exec", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+      })
+      .then(res => res.json())
+      .then(response => {
+        alert("📌 ส่งคำจองสำเร็จ! ระบบกำลังหาผู้รับงานให้คุณ");
+        // ในกรณีใช้ LIFF: liff.closeWindow();
+      })
+      .catch(error => {
+        alert("เกิดข้อผิดพลาด กรุณาลองใหม่");
+        console.error(error);
+      });
     });
-
-    function viewProfile() {
-      alert("📄 โปรไฟล์ผู้รับจ้าง: ชื่อ, รีวิว, เรตติ้ง, ประวัติงาน...");
-    }
-
-    function chatNow() {
-      alert("💬 เริ่มแชทกับผู้รับจ้างผ่าน LINE OA");
-    }
-
-    function rateWorker() {
-      alert("🌟 ให้คะแนน / เขียนรีวิวผู้รับจ้าง");
-    }
-
-    function checkPoints() {
-      alert("🎁 แต้มสะสมของคุณ: 520 แต้ม (สะสมครบ 1000 แต้ม ลด 100 บาท)");
-    }
-
-    let statuses = ["รอรับงาน", "กำลังทำงาน", "เสร็จสิ้น"];
-    let current = 0;
-    function simulateStatus() {
-      current = (current + 1) % statuses.length;
-      document.getElementById("status").innerText = statuses[current];
-      alert("📍 สถานะอัปเดต: " + statuses[current]);
-    }
   </script>
 </body>
-  </html>
+</html>
